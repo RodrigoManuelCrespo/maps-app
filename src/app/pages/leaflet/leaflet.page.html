@@ -1,13 +1,19 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Leaflet</ion-title>
+    <div class="home__flex-header">
+      <h2 class="home__title-header" text-left>Leaflet</h2>
+      <img class="home__logo" src="./assets/icon/logo.png" alt="logo syloper">
+    </div>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-  <div class="home__flex-buttons">
-    <ion-button routerLink="/tabs/leaflet/map">Mapa</ion-button>
-    <ion-button routerLink="/tabs/leaflet/instructions">Instructivo</ion-button>
-    <ion-button routerLink="/tabs/leaflet/documentation">Documentación</ion-button>
-  </div>
+  <ion-grid class="home__grid-container">
+    <ion-row class="ion-justify-content-center home__flex-row">
+      <div class="home__flex-buttons">
+        <ion-button shape="round" color="success" routerLink="/tabs/leaflet/map">Mapa</ion-button>
+        <ion-button shape="round" color="success" routerLink="/tabs/leaflet/instructions">Instrucciones</ion-button>
+        <ion-button shape="round" color="success" routerLink="/tabs/leaflet/documentation">Documentación</ion-button>
+      </div>
+    </ion-row>
+  </ion-grid>
 </ion-content>

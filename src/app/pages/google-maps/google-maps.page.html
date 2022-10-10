@@ -1,15 +1,19 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Google Maps
-    </ion-title>
+    <div class="home__flex-header">
+      <h2 class="home__title-header" text-left>Google Maps</h2>
+      <img class="home__logo" src="./assets/icon/logo.png" alt="logo syloper">
+    </div>
   </ion-toolbar>
 </ion-header>
-
-<ion-content [fullscreen]="true">
-  <div class="home__flex-buttons">
-    <ion-button routerLink="/tabs/google-maps/map">Mapa</ion-button>
-    <ion-button routerLink="/tabs/google-maps/instructions">Instructivo</ion-button>
-    <ion-button routerLink="/tabs/google-maps/documentation">Documentación</ion-button>
-  </div>
+<ion-content>
+  <ion-grid class="home__grid-container">
+    <ion-row class="ion-justify-content-center home__flex-row">
+      <div class="home__flex-buttons">
+        <ion-button shape="round" color="success" routerLink="/tabs/leaflet/map">Mapa</ion-button>
+        <ion-button shape="round" color="success" routerLink="/tabs/leaflet/instructions">Instrucciones</ion-button>
+        <ion-button shape="round" color="success" routerLink="/tabs/leaflet/documentation">Documentación</ion-button>
+      </div>
+    </ion-row>
+  </ion-grid>
 </ion-content>

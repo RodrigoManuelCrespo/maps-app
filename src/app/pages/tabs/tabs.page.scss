@@ -1,1 +1,22 @@
+.tabs {
+    &__font {
+        font-family: "Poppins";
+    }
+    &__color-button {
+        color: rgb(66, 66, 66);
+    }
+    &__ripple {
+        --ripple-color: #2dd36f;
 
+        &:active{
+            color: green;
+        }
+    }
+}
+
+ion-tab-button.tab-selected {
+    ion-icon, ion-label {
+      color: green;
+      --ion-color-base: green;
+    }
+}

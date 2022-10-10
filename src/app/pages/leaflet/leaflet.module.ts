@@ -8,13 +8,20 @@ import { LeafletPageRoutingModule } from './leaflet-routing.module';
 
 import { LeafletPage } from './leaflet.page';
 
+import {
+  LeafletDocumentationComponent,
+  LeafletInstructionsComponent,
+  LeafletMapsComponent,
+} from './views/index';
+
+const VIEWS = [
+  LeafletDocumentationComponent,
+  LeafletInstructionsComponent,
+  LeafletMapsComponent,
+];
+
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    LeafletPageRoutingModule
-  ],
-  declarations: [LeafletPage]
+  imports: [CommonModule, FormsModule, IonicModule, LeafletPageRoutingModule],
+  declarations: [LeafletPage, ...VIEWS],
 })
 export class LeafletPageModule {}
