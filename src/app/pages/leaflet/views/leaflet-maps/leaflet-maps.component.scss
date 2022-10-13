@@ -1,4 +1,4 @@
-.home{
+.leaflet-map{
     &__logo{
         max-width: 30%;
     }
@@ -11,5 +11,8 @@
         padding: 0 1rem;
         font-weight: 600;
         font-family: 'Poppins', sans-serif;
+    }
+    &__container{
+        height: 100%;
     }
 }
