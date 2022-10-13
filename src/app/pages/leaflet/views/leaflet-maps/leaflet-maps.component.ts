@@ -9,11 +9,16 @@ import * as L from 'leaflet';
 })
 export class LeafletMapsComponent {
   map: L.Map;
+  newMarker: any;
 
   constructor() {}
 
   ionViewDidEnter() {
     this.leafletMap();
+  }
+
+  ionViewDidLeave() {
+    this.map.remove();
   }
 
   leafletMap() {
@@ -29,5 +34,20 @@ export class LeafletMapsComponent {
 
     // Añadir marcadores a nuestro mapa
     L.marker([-32.94682, -60.63932]).bindPopup('Pop up').addTo(this.map);
+
+    //this.locatePosition();
   }
+
+  // locatePosition() {
+  //   this.map.locate({ setView: true }).on('locationfound', (e: any) => {
+  //     this.newMarker = L.marker([e.latitude, e.longitude], {
+  //       draggable: true,
+  //     }).addTo(this.map);
+  //     this.newMarker.bindPopup('You are located here!').openPopup();
+
+  //     this.newMarker.on('dragend', () => {
+  //       const position = this.newMarker.getLatLng();
+  //     });
+  //   });
+  // }
 }
