@@ -13,6 +13,8 @@ import {
   GoogleMapsComponent,
 } from './views/index';
 
+import { GoogleMapsModule } from '@angular/google-maps';
+
 const VIEWS = [GoogleInstructionsComponent, GoogleMapsComponent];
 
 @NgModule({
@@ -21,6 +23,7 @@ const VIEWS = [GoogleInstructionsComponent, GoogleMapsComponent];
     FormsModule,
     IonicModule,
     GoogleMapsPageRoutingModule,
+    GoogleMapsModule,
   ],
   declarations: [GoogleMapsPage, ...VIEWS],
 })
