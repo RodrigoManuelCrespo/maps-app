@@ -7,5 +7,13 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <google-map height="100%"></google-map>
+  <google-map height="80%" [zoom]="zoom" [center]="center" [options]="options">
+    <map-marker *ngFor="let marker of markers" [position]="marker.position" [label]="marker.label"
+      [title]="marker.title" [options]="marker.options">
+    </map-marker>
+  </google-map>
+  <ion-button fill="outline" color="success" (click)="zoomIn()">Zoom in</ion-button>
+  <ion-button fill="outline" color="success" (click)="zoomOut()">Zoom out</ion-button>
+  <ion-button fill="outline" color="success" (click)="updateLocation()">Update location</ion-button>
+  <ion-button fill="outline" color="success" (click)="addMarker()">Add marker</ion-button>
 </ion-content>
