@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { GoogleMap } from '@angular/google-maps';
+import { GeojsonService } from '../../services/geojson.service';
 
 @Component({
   selector: 'app-google-maps',
@@ -24,7 +26,10 @@ export class GoogleMapsComponent implements OnInit {
     { lat: 13, lng: -13 },
   ];
 
-  constructor() {}
+  constructor(
+    private geojsonService: GeojsonService,
+    private http: HttpClient
+  ) {}
 
   ngOnInit() {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -34,9 +39,17 @@ export class GoogleMapsComponent implements OnInit {
       };
     });
 
-    //const prueba = JSON.parse(geojson);
+    this.geojsonService.onMapReady().subscribe((res) => {
+      this.map.data.addGeoJson(res);
 
-    //this.map.data.addGeoJson(prueba);
+      this.map.data.setStyle({
+        strokeColor: 'blue',
+        fillOpacity: 0.1,
+        fillColor: 'blue',
+        strokeWeight: 2,
+        icon: 'http://maps.google.com/mapfiles/ms/micons/blue.png',
+      });
+    });
   }
 
   zoomIn() {
@@ -69,4 +82,12 @@ export class GoogleMapsComponent implements OnInit {
       },
     });
   }
+
+  // onMapReady() {
+  //   this.http.get('assets/data.json').subscribe((res) => {
+  //     this.capa = res;
+  //     console.log(res);
+  //     this.map.data.addGeoJson(res);
+  //   });
+  // }
 }
