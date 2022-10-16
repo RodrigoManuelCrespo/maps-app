@@ -9,13 +9,13 @@ import { GoogleMapsPageRoutingModule } from './google-maps-routing.module';
 import { GoogleMapsPage } from './google-maps.page';
 
 import {
-  GoogleInstructionsComponent,
+  GoogleDocumentationComponent,
   GoogleMapsComponent,
 } from './views/index';
 
 import { GoogleMapsModule } from '@angular/google-maps';
 
-const VIEWS = [GoogleInstructionsComponent, GoogleMapsComponent];
+const VIEWS = [GoogleMapsComponent, GoogleDocumentationComponent];
 
 @NgModule({
   imports: [

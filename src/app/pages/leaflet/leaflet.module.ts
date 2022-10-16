@@ -10,15 +10,10 @@ import { LeafletPage } from './leaflet.page';
 
 import {
   LeafletDocumentationComponent,
-  LeafletInstructionsComponent,
   LeafletMapsComponent,
 } from './views/index';
 
-const VIEWS = [
-  LeafletDocumentationComponent,
-  LeafletInstructionsComponent,
-  LeafletMapsComponent,
-];
+const VIEWS = [LeafletDocumentationComponent, LeafletMapsComponent];
 
 @NgModule({
   imports: [CommonModule, FormsModule, IonicModule, LeafletPageRoutingModule],

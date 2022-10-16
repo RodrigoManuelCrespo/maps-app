@@ -2,11 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { LeafletPage } from './leaflet.page';
-import {
-  LeafletDocumentationComponent,
-  LeafletInstructionsComponent,
-  LeafletMapsComponent,
-} from './views';
+import { LeafletDocumentationComponent, LeafletMapsComponent } from './views';
 
 const routes: Routes = [
   {
@@ -20,10 +16,6 @@ const routes: Routes = [
   {
     path: 'documentation',
     component: LeafletDocumentationComponent,
-  },
-  {
-    path: 'instructions',
-    component: LeafletInstructionsComponent,
   },
 ];
 

@@ -2,11 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { GoogleMapsPage } from './google-maps.page';
-import {
-  GoogleDocumentationComponent,
-  GoogleInstructionsComponent,
-  GoogleMapsComponent,
-} from './views';
+import { GoogleDocumentationComponent, GoogleMapsComponent } from './views';
 
 const routes: Routes = [
   {
@@ -16,10 +12,6 @@ const routes: Routes = [
   {
     path: 'map',
     component: GoogleMapsComponent,
-  },
-  {
-    path: 'instructions',
-    component: GoogleInstructionsComponent,
   },
   {
     path: 'documentation',

@@ -20,11 +20,6 @@ const routes: Routes = [
           import('../leaflet/leaflet.module').then((m) => m.LeafletPageModule),
       },
       {
-        path: 'home',
-        loadChildren: () =>
-          import('../home/home.module').then((m) => m.HomePageModule),
-      },
-      {
         path: '',
         redirectTo: '/tabs/google-maps',
         pathMatch: 'full',
