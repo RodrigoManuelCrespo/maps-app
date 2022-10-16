@@ -1,4 +1,5 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { GoogleMap } from '@angular/google-maps';
 
 @Component({
   selector: 'app-google-maps',
@@ -6,19 +7,22 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./google-maps.component.scss'],
 })
 export class GoogleMapsComponent implements OnInit {
-  @ViewChild('map') mapElement!: ElementRef;
+  @ViewChild(GoogleMap, { static: false }) map!: GoogleMap;
 
   zoom = 12;
   center: google.maps.LatLngLiteral;
   options: google.maps.MapOptions = {
-    mapTypeId: 'hybrid',
     zoomControl: false,
-    scrollwheel: false,
-    disableDoubleClickZoom: true,
-    maxZoom: 15,
-    minZoom: 8,
+    maxZoom: 20,
+    minZoom: 2,
   };
   markers: any[] = [];
+
+  vertices: google.maps.LatLngLiteral[] = [
+    { lat: 13, lng: 13 },
+    { lat: -13, lng: 0 },
+    { lat: 13, lng: -13 },
+  ];
 
   constructor() {}
 
@@ -29,6 +33,10 @@ export class GoogleMapsComponent implements OnInit {
         lng: position.coords.longitude,
       };
     });
+
+    //const prueba = JSON.parse(geojson);
+
+    //this.map.data.addGeoJson(prueba);
   }
 
   zoomIn() {

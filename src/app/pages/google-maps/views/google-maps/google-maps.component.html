@@ -11,6 +11,7 @@
     <map-marker *ngFor="let marker of markers" [position]="marker.position" [label]="marker.label"
       [title]="marker.title" [options]="marker.options">
     </map-marker>
+    <map-polygon [paths]="vertices"></map-polygon>
   </google-map>
   <ion-button fill="outline" color="success" (click)="zoomIn()">Zoom in</ion-button>
   <ion-button fill="outline" color="success" (click)="zoomOut()">Zoom out</ion-button>
