@@ -11,6 +11,7 @@ import { GeojsonService } from '../../services/geojson.service';
 export class GoogleMapsComponent implements OnInit {
   @ViewChild(GoogleMap, { static: false }) map!: GoogleMap;
 
+  // Configuraciones iniciales
   zoom = 12;
   center: google.maps.LatLngLiteral;
   options: google.maps.MapOptions = {
@@ -18,6 +19,7 @@ export class GoogleMapsComponent implements OnInit {
     maxZoom: 20,
     minZoom: 2,
   };
+
   markers: any[] = [];
 
   vertices: google.maps.LatLngLiteral[] = [
@@ -32,6 +34,7 @@ export class GoogleMapsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    // Obtener posicion actual
     navigator.geolocation.getCurrentPosition((position) => {
       this.center = {
         lat: position.coords.latitude,
@@ -39,9 +42,12 @@ export class GoogleMapsComponent implements OnInit {
       };
     });
 
+    // Cargar geojson
     this.geojsonService.onMapReady().subscribe((res) => {
+      // Agregamos geojson
       this.map.data.addGeoJson(res);
 
+      // Seteamos estilos
       this.map.data.setStyle({
         strokeColor: 'blue',
         fillOpacity: 0.1,
@@ -74,6 +80,7 @@ export class GoogleMapsComponent implements OnInit {
     });
   }
 
+  // Para añadir un marcador se debe agregar la etiqueta <map-marker> en el template
   addMarker() {
     this.markers.push({
       position: {
@@ -82,12 +89,4 @@ export class GoogleMapsComponent implements OnInit {
       },
     });
   }
-
-  // onMapReady() {
-  //   this.http.get('assets/data.json').subscribe((res) => {
-  //     this.capa = res;
-  //     console.log(res);
-  //     this.map.data.addGeoJson(res);
-  //   });
-  // }
 }
