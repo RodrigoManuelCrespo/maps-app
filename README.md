@@ -6,12 +6,12 @@ Este proyecto te permitira obtener la informacion necesaria para la implementaci
 
 **Google Maps:** _La API de Google Maps es definitivamente el titán de la cartografía interactiva en línea. Por lo general, son la primera plataforma que aprenden los nuevos mapeadores interactivos, debido a la facilidad para comenzar, la naturaleza omnipresente de Google Maps y la gran popularidad de Google en general._
 
-**Leaflet:** _Leaflet es una plataforma de la que las personas generalmente escuchan una vez que han realizado un mapeo: es un complemento de mapeo de código abierto y disponible gratuitamente para JavaScript que tiene muchos complementos y complementos a disposición de los usuarios. Requiere un poco más de conocimiento del desarrollador para comenzar, pero es el favorito de los desarrolladores de código abierto._
+**Leaflet:** _Leaflet es una plataforma de la que las personas generalmente escuchan una vez que han realizado un mapeo: es un complemento de mapeo de código abierto y disponible gratuitamente para JavaScript que tiene muchos complementos a disposición de los usuarios. Requiere un poco más de conocimiento del desarrollador para comenzar, pero es el favorito de los desarrolladores de código abierto._
 
 ## Teniendo en cuenta tu proyecto 📋
 
 En su mayor parte, en la mayoría de los proyectos de mapas pequeños, como colocar marcadores en los mapas, tener ventanas emergentes, etc., hay poca diferencia funcional entre la API de Google Maps y Leaflet. Ambos pueden manejar todos los conceptos básicos de mapeo bastante bien.
-Aquí hay algunos puntos que deberían ayudarlo a tomar una decisión más fácil, si ha considerado las preguntas que planteé anteriormente sobre su proyecto de mapeo.
+Aquí hay algunos puntos que deberían ayudarlo a tomar una decisión más fácil.
 
 1. Servicios de mapas
    Google ofrece muchos servicios útiles, como geolocalización, cuadros de autocompletar, tráfico, tránsito y más. La mayoría de estos servicios son fáciles de obtener desde cualquier otro lugar (hay muchas API de geolocalización, como ArcGIS), pero los datos de alcance de tráfico y tránsito de Google no tienen paralelo. Pocos otros servicios tienen mucho tráfico y tránsito en China o en todo el Medio Oriente, pero Google sí.
@@ -48,14 +48,20 @@ _Paso 2: Importamos leaflet style en global.scss_
 @import "~leaflet/dist/leaflet.css"
 ```
 
-_Paso 3: Iniciamos el mapa en el componente_
+_Paso 3: Agregamos la etiqueta del mapa con su ID en el template_
+
+```
+<div id="mapId" style="width: 100%; height: 100%"></div>
+```
+
+_Paso 4: Iniciamos el mapa en el componente_
 
 ```
 Importamos -> import * as Leaflet from 'leaflet';
 
 Declaramos -> map: Leaflet.Map;
 
-Funcion para iniciar el mapa ->
+Creamos la funcion para inicializar el mapa ->
 
 leafletMap() {
     this.map = Leaflet.map('mapId').setView([28.644800, 77.216721], 5);
@@ -64,15 +70,6 @@ leafletMap() {
     }).addTo(this.map);
 }
 
-```
-
-_Paso 4: Agregamos la etiqueta del mapa con su ID en el template_
-
-```
-<ion-content>
-  <div id="mapId" style="width: 100%; height: 100%">
-  </div>
-</ion-content>
 ```
 
 ## Google Maps
@@ -86,12 +83,12 @@ Para la implementación de Google Maps necesitamos crearnos una cuenta en Google
 Una vez obetenida la api key podemos seguir 3 caminos para agregar el mapa.
 
 1. Documentación de Google Maps https://developers.google.com/maps/documentation/javascript/overview
-2. Componente de Google Maps para angular https://github.com/angular/components/tree/main/src/google-maps#readme
-3. Google maps nativo para ionic con capacitor https://capacitorjs.com/docs/apis/google-maps
+2. Google maps nativo para ionic con capacitor https://capacitorjs.com/docs/apis/google-maps
+3. Componente de Google Maps para angular https://github.com/angular/components/tree/main/src/google-maps#readme
 
-En este proyecto se utliza la segunda opcion dada la facilidad que nos brinda para su instalacion y su uso. A diferencia de las demas opciones, podemos utlizar en el template la etiqueta <google-maps> junto con otras que se ofrecen. Ademas podemos setear configuraciones como propiedades en la misma etiqueta.
+En este proyecto utilizaremos la ultima opcion dada la facilidad que nos brinda para su instalacion y su uso. A diferencia de las demas opciones, podemos utlizar en el template la etiqueta <google-maps> junto con otras que se ofrecen. Ademas podemos setear configuraciones como propiedades en la misma etiqueta.
 
-_Paso 1: Agregamos leaflet al proyecto_
+_Paso 1: Agregamos Google Maps al proyecto_
 
 ```
 https://www.npmjs.com/package/@angular/google-maps
@@ -100,12 +97,6 @@ npm i @angular/google-maps
 ```
 
 _Paso 2: Agregamos la api key en el index.html_
-
-```
-https://www.npmjs.com/package/leaflet
-
-npm install leaflet
-```
 
 _Paso 3: Importamos Google maps en el modulo requerido_
 
